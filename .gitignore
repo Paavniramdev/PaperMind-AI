@@ -1,0 +1,57 @@
+﻿# Python
+__pycache__/
+*.py[cod]
+*.pyd
+.Python
+.venv/
+venv/
+env/
+ENV/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
+credentials/
+
+# Testing and coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# Node.js / React
+node_modules/
+dist/
+build/
+.vite/
+coverage/
+
+# IDE and operating system
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.log
+
+# Databases and local data
+*.db
+*.sqlite
+*.sqlite3
+
+# Generated ML artifacts
+*.faiss
+*.index
+embeddings/
+vector_store/
+model_cache/
+models/
+
+# Temporary files
+*.tmp
+*.bak
+*.swp

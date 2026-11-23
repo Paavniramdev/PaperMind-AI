@@ -1,0 +1,15 @@
+{
+    "revision": "2.3.6",
+    "replace_these_eight_files": [
+        "CHANGELOG.md",
+        "DECISION_LOG.md",
+        "DEVELOPMENT_ROADMAP.md",
+        "MILESTONE_0_CHECKLIST.md",
+        "PROJECT_BRIEF.md",
+        "PROJECT_SETUP_GUIDE.md",
+        "SYSTEM_ARCHITECTURE.md",
+        "TECH_STACK.md"
+    ],
+    "additional_file": "REVIEW_NOTES.md",
+    "milestone_0_authorized": false
+}
