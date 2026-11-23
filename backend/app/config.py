@@ -13,6 +13,13 @@ from pathlib import Path
 
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
+from app.core.ingestion.config import (
+    BYTES_PER_MEGABYTE,
+    DEFAULT_INGESTION_LIMITS,
+    DEFAULT_MAX_PDF_SIZE_MB,
+    IngestionLimits,
+)
+
 # <repo_root>/backend/app/config.py -> parent.parent.parent == <repo_root>
 REPO_ROOT: Path = Path(__file__).resolve().parent.parent.parent
 
@@ -47,6 +54,11 @@ class Settings(BaseSettings):
     EMBEDDING_MODEL_ID: str = "BAAI/bge-small-en-v1.5"
     EMBEDDING_DEVICE: str = "cpu"
     RETRIEVAL_ABSTENTION_THRESHOLD: float = 0.40
+    MAX_PDF_SIZE_MB: int = DEFAULT_MAX_PDF_SIZE_MB
+    MIN_PDF_PAGE_COUNT: int = DEFAULT_INGESTION_LIMITS.min_page_count
+    SCANNED_PAGE_CHAR_THRESHOLD: int = DEFAULT_INGESTION_LIMITS.scanned_page_char_threshold
+    SCANNED_PAGE_RATIO: float = DEFAULT_INGESTION_LIMITS.scanned_page_ratio
+    SCANNED_DENSITY_THRESHOLD: float = DEFAULT_INGESTION_LIMITS.scanned_density_threshold
     LLM_PROVIDER: str = "openai"
     OPENAI_API_KEY: str = ""
     OLLAMA_BASE_URL: str = "http://localhost:11434"
@@ -91,6 +103,21 @@ class Settings(BaseSettings):
         if not url.startswith(SQLITE_PREFIX):
             return None
         return Path(url[len(SQLITE_PREFIX) :])
+
+    @property
+    def ingestion_limits(self) -> IngestionLimits:
+        """Immutable ingestion limits built from the environment-overridable settings.
+
+        ``app/core`` stays framework-free: this module adapts the settings into the
+        plain value object the validator consumes through dependency injection.
+        """
+        return IngestionLimits(
+            max_pdf_size_bytes=self.MAX_PDF_SIZE_MB * BYTES_PER_MEGABYTE,
+            min_page_count=self.MIN_PDF_PAGE_COUNT,
+            scanned_page_char_threshold=self.SCANNED_PAGE_CHAR_THRESHOLD,
+            scanned_page_ratio=self.SCANNED_PAGE_RATIO,
+            scanned_density_threshold=self.SCANNED_DENSITY_THRESHOLD,
+        )
 
     def ensure_directories(self) -> None:
         """Create the local storage layout on demand (never during import)."""
