@@ -1,4 +1,4 @@
-﻿# Python
+# Python
 __pycache__/
 *.py[cod]
 *.pyd
@@ -7,6 +7,9 @@ __pycache__/
 venv/
 env/
 ENV/
+backend/.venv/
+*.egg-info/
+.eggs/
 
 # Environment variables and secrets
 .env
@@ -42,6 +45,16 @@ Thumbs.db
 *.db
 *.sqlite
 *.sqlite3
+
+# Local runtime storage: keep the directory layout, ignore its contents.
+data/*
+!data/.gitkeep
+!data/raw_papers/
+!data/vector_indices/
+data/raw_papers/*
+!data/raw_papers/.gitkeep
+data/vector_indices/*
+!data/vector_indices/.gitkeep
 
 # Generated ML artifacts
 *.faiss

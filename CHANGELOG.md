@@ -2,6 +2,10 @@ PaperMind AI — Architecture Changelog & Technical Revisions
 Version: 2.3.7
 Date: November 2026
 Status: Approved Greenfield Specification
+[2.3.8] — Milestone 0 Runtime Documentation Correction
+- Runtime Pin Corrected: The frontend runtime requirement was updated from Node.js 20 LTS (Iron) to Node.js 24 LTS across the specification documents, aligning the written specification with the verified host toolchain (Node.js v24.18.0, npm 11.16.0).
+- Rationale: The Milestone 0 environment runs Node.js 24 LTS. Vite, ESLint 9 flat config, TypeScript strict mode, and the frontend lint/build scripts were validated successfully under Node.js 24. No architectural decision other than the runtime pin was affected.
+- Scope: Documentation text only. This revision does not change Milestone 0 application code, dependency sets, or acceptance criteria.
 [2.3.7] — Ingestion Eligibility, Generation Membership & Startup Recovery Consistency
 1. Newly Ingested Paper Included in Its First Published Generation
    - A newly ingested paper remains PROCESSING until publication succeeds, but is included in that ingestion operation's candidate generation after its complete chunk set and embedding BLOBs have been validated and committed.

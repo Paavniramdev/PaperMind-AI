@@ -1,14 +1,14 @@
 PaperMind AI — Greenfield Local Development Setup Guide
 Version: 2.3.7
 Status: Approved Greenfield Specification
-Runtime Environment: Python 3.11.x | Node.js 20 LTS
+Runtime Environment: Python 3.11.x | Node.js 24 LTS
 Deployment Model (MVP): Single-Worker Uvicorn Process (workers = 1)
 Date: November 2026  
 1. System Prerequisites
    Ensure your development environment meets the following specifications before beginning setup:
    - Operating System: Windows 11, macOS 13+, or Ubuntu 22.04 LTS.
    - Python: Version 3.11.x installed and accessible via PATH.
-   - Node.js: Version 20.x LTS (Iron) with npm >= 10.x.
+   - Node.js: Version 24.x LTS with npm >= 11.x.
    - Git: Installed and configured.
    - Memory: Minimum 8 GB RAM (16 GB recommended).
    - Disk Space: At least 5 GB free disk space.
@@ -58,7 +58,7 @@ Step 3: Backend Setup (Python 3.11)
    ruff check backend
    mypy backend/app
    pytest backend/tests
-   Step 4: Frontend Setup (Node.js 20 LTS)
+   Step 4: Frontend Setup (Node.js 24 LTS)
 4. Navigate to the frontend directory:
    cd frontend
 5. Install frontend dependencies:

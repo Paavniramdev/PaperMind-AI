@@ -1,7 +1,7 @@
 PaperMind AI — Project Brief & Product Vision
 Version: 2.3.7 (Validated Greenfield Specification)
 Status: Approved for Implementation Planning
-Runtime Environment: Python 3.11.x | Node.js 20 LTS
+Runtime Environment: Python 3.11.x | Node.js 24 LTS
 Deployment Model (MVP): Single-Worker Uvicorn Process (workers = 1)
 Primary Architect: Senior Software Architect
 Date: November 2026  
@@ -63,7 +63,7 @@ The 9 Mandatory MVP Capabilities
     Specified Evaluation Environment
     - Hardware: Standard 8-core CPU (x86_64 Intel/AMD or Apple Silicon), 16 GB RAM, no GPU required (pure CPU execution).
     - Operating Systems: Windows 11, macOS 13+, Ubuntu 22.04 LTS.
-    - Runtimes & Process Model: Python 3.11.x, Node.js 20 LTS, Single Uvicorn Worker (workers = 1).
+    - Runtimes & Process Model: Python 3.11.x, Node.js 24 LTS, Single Uvicorn Worker (workers = 1).
       Measured Benchmark Targets (Evaluation Environment)
       Metric	Benchmark Target	Stretch Benchmark Target	Verification Methodology
       PDF Ingestion Throughput	$< 5.0\text{ s}$ for 15-page PDF	$< 3.5\text{ s}$	Measured wall-clock time from upload to vectors stored in FAISS (CPU execution)

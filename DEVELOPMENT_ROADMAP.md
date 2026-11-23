@@ -1,7 +1,7 @@
 PaperMind AI — Development Roadmap & Milestones
 Version: 2.3.7 (Validated Greenfield Specification)
 Status: Approved for Implementation Planning
-Runtime Environment: Python 3.11.x | Node.js 20 LTS
+Runtime Environment: Python 3.11.x | Node.js 24 LTS
 Deployment Model (MVP): Single-Worker Uvicorn Process (workers = 1)
 Primary Architect: Senior Software Architect
 Date: November 2026  
@@ -26,7 +26,7 @@ flowchart TD
 ```
 2. Milestone Details & Behavioral Acceptance Criteria
    Milestone 0: Repository Scaffolding, Tooling & Path Normalization
-   - Objective: Create the clean greenfield folder structure, establish Python 3.11 and Node.js 20 configurations, configure static analysis (Ruff, Mypy), setup frontend linting and build scripts, configure authoritative path resolution, and verify baseline test harness.
+   - Objective: Create the clean greenfield folder structure, establish Python 3.11 and Node.js 24 configurations, configure static analysis (Ruff, Mypy), setup frontend linting and build scripts, configure authoritative path resolution, and verify baseline test harness.
    - Dependencies Installed:
      - Backend: fastapi, uvicorn, pydantic, pydantic-settings, sqlalchemy. Dev: pytest, pytest-asyncio, httpx, ruff, mypy.
      - Frontend: React 18, React DOM, Vite, TypeScript, Tailwind CSS, ESLint.
@@ -38,17 +38,17 @@ flowchart TD
      - Frontend: package.json with working "lint" and "build" scripts.
      - Root .env.example with empty OPENAI_API_KEY= and dynamic paths.
    - Behavioral Acceptance Criteria:
-     - [ ] pytest backend/tests executes and reports passing status on baseline sanity test using httpx.AsyncClient.
-     - [ ] Path Normalization Test Suite: Test verifies identical absolute path resolution across all 5 configurations:
+     - [x] pytest backend/tests executes and reports passing status on baseline sanity test using httpx.AsyncClient.
+     - [x] Path Normalization Test Suite: Test verifies identical absolute path resolution across all 5 configurations:
        1. Default configuration.
        2. Relative DATABASE_URL (e.g. sqlite:///./custom_db/test.db).
        3. Relative PAPERMIND_DATA_DIR with DATABASE_URL unset.
        4. Explicit absolute database paths.
        5. Execution from repository root and backend/ directory.
-     - [ ] ruff check backend passes with 0 linting errors.
-     - [ ] mypy backend/app passes with 0 typing errors in strict mode.
-     - [ ] cd frontend && npm run lint passes with 0 errors and 0 warnings.
-     - [ ] cd frontend && npm run build succeeds without TypeScript or bundling errors.
+     - [x] ruff check backend passes with 0 linting errors.
+     - [x] mypy backend/app passes with 0 typing errors in strict mode.
+     - [x] cd frontend && npm run lint passes with 0 errors and 0 warnings.
+     - [x] cd frontend && npm run build succeeds without TypeScript or bundling errors.
        Milestone 1: PDF Ingestion Engine & Structure-Aware Chunker
    - Objective: Install pymupdf and build the document parsing module to ingest academic PDFs, reconstruct complex mixed single/two-column reading orders via vertical banding, preserve normalized coordinates, detect scanned documents at the document level, and generate structured chunks.
    - Dependencies Added: pymupdf ^1.24.0.

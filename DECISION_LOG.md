@@ -1,7 +1,7 @@
 PaperMind AI — Architectural Decision Log (ADR)
 Version: 2.3.7
 Status: Approved Greenfield Architecture
-Runtime Environment: Python 3.11.x | Node.js 20 LTS
+Runtime Environment: Python 3.11.x | Node.js 24 LTS
 Deployment Model (MVP): Single-Worker Uvicorn Process (workers = 1)
 Date: November 2026
 Index of Architectural Decisions
@@ -80,7 +80,8 @@ Index of Architectural Decisions
   - Note: Performance metrics are treated as measured benchmark targets, not guaranteed minimums.
     DEC-009: Runtime Versions & Authoritative Path Resolution
 - Status: Finalized
-- Decision: Lock runtimes to Python 3.11.x and Node.js 20 LTS (Iron).
+- Decision: Lock runtimes to Python 3.11.x and Node.js 24 LTS.
+- Runtime Correction (2026-11-23): The original specification pinned Node.js 20 LTS (Iron). To align with the verified host toolchain, the authoritative frontend runtime is corrected to Node.js 24 LTS (verified locally as v24.18.0 with npm 11.16.0). This supersedes the Node.js 20 pin; all frontend configuration (.node-version expectations, Vite, ESLint 9 flat config) is validated against Node.js 24.
 - Authoritative Dynamic Path Resolution:
   - Both PAPERMIND_DATA_DIR and DATABASE_URL anchor to module-level REPO_ROOT = Path(file).resolve().parent.parent.parent directly in config.py.
   - Relative paths are resolved against module-level REPO_ROOT, guaranteeing identical file resolution whether executed from the project root, backend/, or test runners.

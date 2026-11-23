@@ -1,7 +1,7 @@
 PaperMind AI — System Architecture Document
 Version: 2.3.7 (Validated Greenfield Specification)
 Status: Approved for Implementation Planning
-Runtime Environment: Python 3.11.x | Node.js 20 LTS
+Runtime Environment: Python 3.11.x | Node.js 24 LTS
 Deployment Model (MVP): Single-Worker Uvicorn Process (workers = 1)
 Primary Architect: Senior Software Architect
 Date: November 2026  
